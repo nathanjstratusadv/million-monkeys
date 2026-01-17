@@ -1,0 +1,28 @@
+[project]
+name = "million-monkeys"
+description = "Million Monkeys Artificial Intelligence Test"
+dynamic = ["version"]
+readme = "README.md"
+authors = [
+    { name = "Nathan Johnson", email = "nathanj@stratusadv.com" },
+]
+keywords = ["tool"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+requires-python = ">=3.12"
+
+dependencies = [
+    "celery",
+    "dandy",
+    "python-dotenv",
+    "ruff",
+    "sqlalchemy",
+]
+
+[tool.ruff]
+extend = "ruff.toml"
+
+[tool.setuptools]
+packages = ["app"]
