@@ -12,6 +12,7 @@ LLM_CONFIGS = {
     'DEFAULT': {
         'TYPE': 'openai',
         'HOST': os.getenv('AI_API_HOST'),
+        'PORT': 443,
         'API_KEY': os.getenv('AI_API_KEY'),
         'MODEL': os.getenv('AI_API_MODEL'),
         'TEMPERATURE': 0.1,

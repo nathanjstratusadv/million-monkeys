@@ -1,17 +1,9 @@
-import os
+from app.celery import app
+from monkeys.intelligence.workflow import million_monkeys_workflow
 
-from celery import Celery
-from dotenv import load_dotenv
-
-
-load_dotenv()
-
-app = Celery(
-    main='tasks',
-    backend='rpc://',
-    broker=f'pyamqp://{os.getenv("RABBITMQ_USER")}:{os.getenv("RABBITMQ_PASS")}@{os.getenv("RABBITMQ_HOST")}'
-)
 
 @app.task
-def add(x, y):
-    return x + y
+def solve_user_request(user_request: str):
+    return million_monkeys_workflow(
+        user_request=user_request
+    )

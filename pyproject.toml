@@ -15,7 +15,9 @@ requires-python = ">=3.12"
 
 dependencies = [
     "celery",
+    "celery-types",
     "dandy",
+    "peewee",
     "python-dotenv",
     "ruff",
     "sqlalchemy",
