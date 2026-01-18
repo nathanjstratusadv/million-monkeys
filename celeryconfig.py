@@ -10,18 +10,10 @@ imports = (
     'app.tasks',
 )
 
-result_backend = 'rpc://'
-# result_backend = 'db+sqlite:///results.db'
+result_backend = f'db+mysql+mysqlconnector://{os.getenv("MYSQL_USER")}:{os.getenv("MYSQL_PASS")}@{os.getenv("MYSQL_HOST")}/million_monkeys'
 
 task_serializer = 'json'
 accept_content = [
     'json'
 ]
 result_serializer = 'json'
-
-
-task_annotations = {
-    'tasks.add': {
-        'rate_limit': '10/s'
-    }
-}

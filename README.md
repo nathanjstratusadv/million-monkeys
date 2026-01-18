@@ -9,3 +9,8 @@ To run a Celery worker on Windows for development or debugging, you can use the 
 This is necessary because Celery's default concurrency mechanism (prefork) is incompatible with Windows due to differences in how the operating systems handle process forking. 
 
 `celery worker --pool=solo --loglevel=info`
+
+## Important Notes
+
+Make sure not to change `mysql-connector-python==9.0.0` as there is some weird behavior with the latest version. 
+If you encounter issues with the database connection, try downgrading to version 9.0.0.
