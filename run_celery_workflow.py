@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from monkeys.intelligence.workflow import million_monkeys_workflow
+from app.tasks import solve_user_request
 
 
 def main():
@@ -14,15 +14,15 @@ def main():
     print('Running...')
 
     if len(sys.argv) < 2:
-        print("Usage: python run_workflow.py <user_request>")
+        print("Usage: python run_celery_workflow.py <user_request>")
         sys.exit(1)
 
 
     user_request = ' '.join(sys.argv[1:])
 
-    result = million_monkeys_workflow(user_request)
+    result = solve_user_request.delay(user_request)
 
-    print(f"Result: {result}")
+    print(f"Result: {result.get()}")
 
     end = perf_counter()
 

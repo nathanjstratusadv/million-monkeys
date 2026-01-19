@@ -3,10 +3,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from monkeys.setup import setup
-
-setup()
-
 app = Celery(
     main='tasks',
 )
